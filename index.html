@@ -8,10 +8,46 @@
 		<link rel="stylesheet" href="style.css" />
 		<script src="script.js" defer></script>
 	</head>
-	<body></body>
+	<body>
+		<div class="container">
+			<div id="weather"></div>
+			<form id="location-form">
+				<label for="location-input">Enter a location:</label>
+				<input type="text" id="location-input" name="location-input" />
+				<button type="submit">Get Weather</button>
+			</form>
+		</div>
+		<script>
+			const weather = document.querySelector('#weather');
+
+			async function getWeather() {
+				const url = `https://api.weatherapi.com/v1/current.json?key=42d3039f04ac4e4687c171843241405&q=London`;
+
+				const response = await fetch(url, { mode: 'cors' });
+				const data = await response.json();
+
+				console.log(data);
+
+				weather.textContent =
+					data.location.name +
+					`, ` +
+					data.location.localtime +
+					`, Feel's like
+						` +
+					data.current.feelslike_c +
+					`, ` +
+					data.current.condition.text;
+			}
+
+			getWeather();
+		</script>
+	</body>
 </html>
 
+<!-- get weather data and log it -->
 <!-- Take the location of the user and then fetch API data -->
 <!-- Set up a form that lets users input their location -->
 <!-- Display the weather data -->
 <!-- Optional: add a loading bar which shows response time -->
+
+<!-- https://api.weatherapi.com/v1/current.json?key=42d3039f04ac4e4687c171843241405&q=London -->
