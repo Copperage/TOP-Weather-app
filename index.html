@@ -10,6 +10,7 @@
 	</head>
 	<body>
 		<div class="container">
+			<h1>The weather in your area is...</h1>
 			<div id="weather"></div>
 			<form id="location-form">
 				<label for="location-input">Enter a location:</label>
@@ -25,16 +26,24 @@
 
 				const response = await fetch(url, { mode: 'cors' });
 				const data = await response.json();
+				const feelsLikeText = document.createElement('span');
+				feelsLikeText.textContent = data.current.feelslike_c + '°C';
 
-				console.log(data);
+				if (data.current.feelslike_c < 10) {
+					feelsLikeText.classList.add('cold');
+				} else if (data.current.feelslike_c > 30) {
+					feelsLikeText.classList.add('hot');
+				} else {
+					feelsLikeText.classList.add('normal');
+				}
 
-				weather.textContent =
+				weather.innerHTML =
 					data.location.name +
-					`, ` +
+					`, <br/>` +
 					data.location.localtime +
-					`, Feel's like
+					`, <br/> Feel's like
 						` +
-					data.current.feelslike_c +
+					feelsLikeText.outerHTML +
 					`, ` +
 					data.current.condition.text;
 			}
@@ -44,8 +53,6 @@
 	</body>
 </html>
 
-<!-- get weather data and log it -->
-<!-- Take the location of the user and then fetch API data -->
 <!-- Set up a form that lets users input their location -->
 <!-- Display the weather data -->
 <!-- Optional: add a loading bar which shows response time -->
