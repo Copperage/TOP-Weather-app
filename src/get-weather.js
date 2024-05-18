@@ -28,3 +28,5 @@ async function getWeather() {
 }
 
 getWeather();
+
+module.exports = { getWeather };

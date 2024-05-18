@@ -44,6 +44,24 @@ h1 {
 	background-color: #4a9b65;
 	color: #ffffff;
 	font-size: 1.1rem;
+	cursor: pointer;
+	transition: 0.15s linear;
+}
+
+#location-form button:hover {
+	background-color: #70b186;
+}
+
+#location-form button:active {
+	background-color: #588266;
+}
+
+#location-form input {
+	border-radius: 5px;
+	padding: 5px;
+	border: 1px solid #bbbbbb;
+	background-color: transparent;
+	font-size: 1.1rem;
 }
 
 .cold {
