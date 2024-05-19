@@ -1,13 +1,12 @@
-const { getWeather } = require('./get-weather.js');
+import { getWeather } from './get-weather.js';
 
 const locationForm = document.querySelector('#location-form');
 const locationInput = document.querySelector('#location-input');
-const submitButton = document.querySelector('button');
 
 function searchLocation() {
 	locationForm.addEventListener('submit', async (event) => {
 		event.preventDefault();
-		const location = locationInput.value;
+		const location = locationInput.value || 'London'; //default location
 		console.log(getWeather(location));
 		await getWeather(location);
 	});
@@ -15,4 +14,4 @@ function searchLocation() {
 
 searchLocation();
 
-module.exports = { searchLocation };
+export { searchLocation };

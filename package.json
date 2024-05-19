@@ -68,6 +68,7 @@
   "homepage": "https://github.com/Copperage/TOP-Weather-app#readme",
   "description": "",
   "devDependencies": {
+    "babel-loader": "^9.1.3",
     "css-loader": "^7.1.1",
     "style-loader": "^4.0.0",
     "webpack": "^5.91.0",
