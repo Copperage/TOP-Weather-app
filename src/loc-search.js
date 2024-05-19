@@ -13,4 +13,6 @@ function searchLocation() {
 	});
 }
 
+searchLocation();
+
 module.exports = { searchLocation };

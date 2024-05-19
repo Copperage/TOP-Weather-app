@@ -1,5 +1,7 @@
 import './styles/style.css';
-import { getWeather } from './get-weather.js';
+
+const { getWeather } = require('./get-weather.js');
+const { searchLocation } = require('./loc-search.js');
 
 // <form id="location-form">
 // <label for="location-input">Enter a location:</label>
