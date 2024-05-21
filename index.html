@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Odin Project Weather App</title>
+		<script src="bundle.js" defer></script>
+	</head>
+	<body>
+		<div class="container">
+			<h1>The weather in your area is...</h1>
+			<div id="weather"></div>
+			<form id="location-form">
+				<label for="location-input">Enter a location:</label>
+				<input type="text" id="location-input" name="location-input" />
+				<button type="submit">Get Weather</button>
+			</form>
+		</div>
+	</body>
+</html>
+
+<!-- Set up a form that lets users input their location -->
+<!-- Display the weather data -->
+<!-- Optional: add a loading bar which shows response time -->
+
+<!-- https://api.weatherapi.com/v1/current.json?key=42d3039f04ac4e4687c171843241405&q=London -->
