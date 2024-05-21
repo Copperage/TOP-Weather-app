@@ -1,9 +1,11 @@
 import { searchLocation } from './loc-search.js';
 const weather = document.querySelector('#weather');
 
-async function getWeather() {
+async function getWeather(location) {
 	const apiKey = '42d3039f04ac4e4687c171843241405';
-	const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=london`;
+	const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${encodeURIComponent(
+		location
+	)}`;
 
 	try {
 		const response = await fetch(url, { mode: 'cors' });
@@ -37,7 +39,5 @@ async function getWeather() {
 		weather.innerHTML = 'Failed to retrieve weather data.';
 	}
 }
-
-getWeather();
 
 export { getWeather };

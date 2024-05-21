@@ -6,12 +6,15 @@ const locationInput = document.querySelector('#location-input');
 function searchLocation() {
 	locationForm.addEventListener('submit', async (event) => {
 		event.preventDefault();
-		const location = locationInput.value || 'London'; //default location
-		console.log(getWeather(location));
+		let location = locationInput.value.trim();
+
+		if (!location) {
+			alert('Please enter a location');
+			return;
+		}
+
 		await getWeather(location);
 	});
 }
-
-searchLocation();
 
 export { searchLocation };
